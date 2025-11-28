@@ -5,6 +5,13 @@ export default defineNuxtConfig({
 
   modules: ["@nuxt/eslint", "@nuxt/hints", "@nuxt/image", "@nuxt/ui"],
 
+  colorMode: {
+    preference: "light",
+    fallback: "light",
+    classSuffix: "",
+    storageKey: "nuxt-color-mode",
+  },
+
   css: ["~/assets/css/main.css"],
 
   devServer: {
@@ -19,5 +26,11 @@ export default defineNuxtConfig({
 
   routeRules: {
     "/api/**": { proxy: "http://localhost:4000/api/**" },
+  },
+
+  postcss: {
+    plugins: {
+      "@tailwindcss/postcss": {},
+    },
   },
 });
